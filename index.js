@@ -1,6 +1,8 @@
 import puppeteer from 'puppeteer-extra';
 import AdblockerPlugin from 'puppeteer-extra-plugin-adblocker';
 
+import fs from 'fs/promises';
+
 // Configura o adblocker
 puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
 
@@ -68,8 +70,10 @@ const runScraping = async () => {
     await browser.close();
   }
 
-  // Imprime os resultados finais em formato JSON
-  console.log(JSON.stringify(results, null, 2));
+  // salvar os resultados em um arquivo JSON
+  const resultJson = JSON.stringify(results, null, 2)
+  await fs.writeFile('results.json', resultJson, 'utf8')
+  console.log('os dados foram salvos em results.json');
 };
 
 runScraping();
