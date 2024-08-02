@@ -17,11 +17,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-<<<<<<< HEAD
-        node-version: '18.x, 20.x, lts/*'
-=======
         node-version: 'lts/*'
->>>>>>> 4de7aca59eb997640da3a45d6fa31df4a74186c2
 
     - name: Install pnpm
       run: npm install -g pnpm@9
