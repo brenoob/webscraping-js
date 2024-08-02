@@ -1,42 +1,42 @@
-name: CI
+name: Node.js CI
 
 on:
   push:
-    branches:
-      - dev
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - dev
+    branches: [ "main" ]
 
 jobs:
   build:
+    runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        node-version: ['lts/*']
-
-    runs-on: ${{ matrix.os }}
+        node-version: [18.x, 20.x, 22.x, lts/*]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-          
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-          
-      - name: Install dependencies
-        run: pnpm install
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Run tests
-        run: pnpm test
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'pnpm'
 
-      - name: Build project
-        run: pnpm build
+    - name: Install pnpm
+      run: npm install -g pnpm@9
+
+    - name: Verify pnpm installation
+      run: |
+        pnpm --version
+        which pnpm
+
+    - name: Install dependencies
+      run: pnpm install
+
+    - name: Build
+      run: pnpm run build --if-present
+
+    - name: Run tests
+      run: pnpm test
