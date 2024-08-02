@@ -26,11 +26,11 @@ jobs:
     - name: Install pnpm
       run: |
         npm install -g pnpm@9
-        pnpm --version  # Verifica se o pnpm foi instalado corretamente
+        pnpm --version # Verifica a instalação do pnpm
 
     - name: Ensure pnpm is in PATH
       run: |
-        echo $PATH
+        echo "PATH=$PATH"
         which pnpm
 
     - name: Install dependencies
