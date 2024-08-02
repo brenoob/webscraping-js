@@ -25,7 +25,9 @@ jobs:
         cache: 'pnpm'
 
     - name: Install pnpm
-      run: npm install -g pnpm@9
+      run: |
+        npm install -g pnpm@9
+        pnpm --version  # Verifica se o pnpm foi instalado corretamente
 
     - name: Install dependencies
       run: pnpm install
