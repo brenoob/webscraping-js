@@ -1,0 +1,60 @@
+# Web Scraping JS
+
+Este projeto é uma aplicação Node.js para coleta de dados de dragões usando Puppeteer. O script principal faz scraping de informações de incubação de dragões e salva os resultados em um arquivo JSON.
+
+## Estrutura do Projeto
+
+O projeto está dividido em três arquivos principais:
+
+- **`index.js`**: O script principal que utiliza Puppeteer para realizar o scraping e salvar os dados em um arquivo JSON.
+- **`dragonUrlsResults.js`**: Script para carregar e processar os dados de `results.json`.
+- **`results.json`**: Arquivo gerado pelo `index.js` contendo os resultados do scraping.
+
+## Dependências
+
+As seguintes dependências são utilizadas no projeto:
+
+- `fs-extra`: Biblioteca para operações de arquivos com funcionalidades adicionais.
+- `nodemon`: Ferramenta para desenvolvimento que reinicia automaticamente o servidor.
+- `puppeteer`: Biblioteca para controle de navegador headless.
+- `puppeteer-extra`: Biblioteca para adicionar plugins ao Puppeteer.
+- `puppeteer-extra-plugin-adblocker`: Plugin para bloquear anúncios no Puppeteer.
+
+
+##Como Rodar
+
+    Instale as dependências:
+
+    ```bash
+
+        pnpm install
+
+    ```
+
+Execute o script principal:
+
+    ```bash
+
+        pnpm run start
+
+    ```
+
+Ou, para desenvolvimento com reinício automático:
+
+    ```bash
+
+        pnpm run start:dev
+
+    ```
+
+## Resultados:
+Após a execução do script, os resultados do scraping serão salvos no arquivo results.json.
+
+##Links Úteis
+
+    Puppeteer Troubleshooting
+
+##Licença
+
+Este projeto está licenciado sob a Licença ISC. Veja o arquivo LICENSE para mais detalhes.
+
