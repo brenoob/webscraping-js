@@ -13,7 +13,6 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x, lts/*]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v4
@@ -37,3 +36,8 @@ jobs:
 
     - name: Run tests
       run: pnpm test
+
+    - name: Check PATH and pnpm version
+      run: |
+        echo $PATH
+        pnpm --version
