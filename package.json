@@ -5,10 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js --ignore **/* --watch index.js",
-    "build": "echo 'No build script specified' && exit 0",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "start": "nodemon index.js --ignore **/* --watch index.js",
+  "build": "echo 'No build script specified' && exit 0",
+  "test": "echo \"Error: no test specified\" && exit 1"
+}
+,
   "keywords": [],
   "author": "",
   "license": "ISC",
