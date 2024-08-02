@@ -24,17 +24,13 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
 
-    - name: Install pnpm
+    - name: Install dependencies
       run: |
         npm install -g pnpm@9
-        echo "PATH: $PATH"
-        pnpm --version
-
-    - name: Install dependencies
-      run: pnpm install
+        pnpm install
 
     - name: Build
-      run: pnpm run build --if-present
+      run: pnpm build
 
     - name: Run tests
       run: pnpm test
