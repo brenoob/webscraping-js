@@ -17,13 +17,10 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20.x'
-        cache: 'pnpm'
+        node-version: '18.x, 20.x, lts/*'
 
     - name: Install pnpm
-      run: |
-        npm install -g pnpm@9
-        pnpm --version  # Verifica a versão do pnpm para garantir que foi instalado corretamente
+      run: npm install -g pnpm@9
 
     - name: Install dependencies
       run: pnpm install
