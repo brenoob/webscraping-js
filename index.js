@@ -51,7 +51,7 @@ const searchTimerEggs = async (name, page) => {
 // Função para rodar a coleta para todos os dragões
 const runScraping = async () => {
   const browser = await puppeteer.launch({
-    headless: false, // Torna o navegador visível
+    // headless: false, // Torna o navegador visível
   });
 
   const results = [];
