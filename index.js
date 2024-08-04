@@ -6,9 +6,12 @@ import fs from 'fs/promises';
 // Configura o adblocker
 puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
 
+let id = 1;
+
 // Lista de dragões a serem pesquisados
 const dragonStoreName = ['whimsical-dragon', 'wind-dragon', 'lava-dragon', 'terra-dragon', 'flame-dragon', 'aztec-dragon'];
 
+// Função para extrair informações de incubação de um dragão
 // Função para extrair informações de incubação de um dragão
 const searchTimerEggs = async (name, page) => {
   try {
@@ -17,34 +20,45 @@ const searchTimerEggs = async (name, page) => {
     console.log(`Aguardando o seletor ".ng-binding" estar disponível para ${name}...`);
     await page.waitForSelector('.ng-binding', { timeout: 60000 });
 
-    console.log(`Coletando o texto desejado para ${name}...`);
+    console.log(`Coletando o texto desejado e URLs das imagens para ${name}...`);
     // Coletar dados e formatar
-    const hatchingTimes = await page.evaluate(() => {
-      const elements = document.querySelectorAll('.ng-binding');
+    const { hatchingTimes, imageUrls } = await page.evaluate(() => {
+      const hatchingElements = document.querySelectorAll('.ng-binding');
+      const imageElements = document.querySelectorAll('div.top10.m-scroll.m-left-negative-10.m-right-negative-10.dragon-image.box-view div.ng-scope img[ng-src]');
+
 
       // Filtra e formata os textos de tempo
       const timeUnits = ['day', 'days', 'hour', 'hours', 'minute', 'minutes', 'second', 'seconds'];
-      return Array.from(elements)
+      const hatchingTimes = Array.from(hatchingElements)
         .map(element => element.textContent.trim())
         .filter(text => timeUnits.some(unit => text.includes(unit)))
         .map(text => {
-          // Remove "Created:" e qualquer outra informação não relacionada a tempo
           if (text.startsWith('Created:')) {
             return null;
           }
           return text;
         })
-        .filter(text => text !== null); // Remove os valores null
+        .filter(text => text !== null);
+
+      // Extrai URLs das imagens
+      const imageUrls = Array.from(imageElements)
+        .map(img => img.getAttribute('ng-src'));
+
+      return {
+        hatchingTimes: hatchingTimes.length > 0 ? hatchingTimes : 'Tempo de incubação não encontrado',
+        imageUrls: imageUrls.length > 0 ? imageUrls : 'Nenhuma imagem encontrada'
+      };
     });
 
-    // Exclui os dados indesejados e formata o retorno
     return {
+      id: id++,
       name,
-      hatchingTimes: hatchingTimes.length > 0 ? hatchingTimes : 'Tempo de incubação não encontrado',
+      hatchingTimes,
+      imageUrls
     };
   } catch (error) {
-    console.error(`Erro ao acessar a página ou extrair o texto para ${name}: ${error.message}`);
-    return { name, hatchingTimes: 'Erro ao coletar dados' };
+    console.error(`Erro ao acessar a página ou extrair os dados para ${name}: ${error.message}`);
+    return { id, name, hatchingTimes: 'Erro ao coletar dados', imageUrls: 'Erro ao coletar imagens' };
   }
 };
 
