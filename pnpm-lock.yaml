@@ -13,13 +13,13 @@ importers:
         version: 3.1.4
       puppeteer:
         specifier: ^22.14.0
-        version: 22.14.0
+        version: 22.14.0(supports-color@5.5.0)
       puppeteer-extra:
         specifier: ^3.3.6
-        version: 3.3.6(puppeteer-core@22.14.0)(puppeteer@22.14.0)
+        version: 3.3.6(puppeteer-core@22.14.0(supports-color@5.5.0))(puppeteer@22.14.0(supports-color@5.5.0))(supports-color@5.5.0)
       puppeteer-extra-plugin-adblocker:
         specifier: ^2.13.6
-        version: 2.13.6(puppeteer-core@22.14.0)(puppeteer-extra@3.3.6(puppeteer-core@22.14.0)(puppeteer@22.14.0))(puppeteer@22.14.0)
+        version: 2.13.6(puppeteer-core@22.14.0(supports-color@5.5.0))(puppeteer-extra@3.3.6(puppeteer-core@22.14.0(supports-color@5.5.0))(puppeteer@22.14.0(supports-color@5.5.0))(supports-color@5.5.0))(puppeteer@22.14.0(supports-color@5.5.0))(supports-color@5.5.0)
 
 packages:
 
@@ -165,8 +165,8 @@ packages:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
 
-  brace-expansion@1.1.11:
-    resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
+  brace-expansion@1.1.21:
+    resolution: {integrity: sha512-9zeA+KLZNNzglF2TPKRQEDyx6Yby7daAkuy8MiPzpXPsYDWi/DRM8jmwUDxokQjYqBpv5DgPiwD4h4ZZSy1Ujw==}
 
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
@@ -766,11 +766,11 @@ snapshots:
 
   '@cliqz/adblocker-extended-selectors@1.30.1': {}
 
-  '@cliqz/adblocker-puppeteer@1.23.8(puppeteer@22.14.0)':
+  '@cliqz/adblocker-puppeteer@1.23.8(puppeteer@22.14.0(supports-color@5.5.0))':
     dependencies:
       '@cliqz/adblocker': 1.30.1
       '@cliqz/adblocker-content': 1.30.1
-      puppeteer: 22.14.0
+      puppeteer: 22.14.0(supports-color@5.5.0)
       tldts-experimental: 5.7.112
 
   '@cliqz/adblocker@1.30.1':
@@ -784,12 +784,12 @@ snapshots:
       '@types/firefox-webext-browser': 120.0.4
       tldts-experimental: 6.1.36
 
-  '@puppeteer/browsers@2.3.0':
+  '@puppeteer/browsers@2.3.0(supports-color@5.5.0)':
     dependencies:
       debug: 4.3.6(supports-color@5.5.0)
-      extract-zip: 2.0.1
+      extract-zip: 2.0.1(supports-color@5.5.0)
       progress: 2.0.3
-      proxy-agent: 6.4.0
+      proxy-agent: 6.4.0(supports-color@5.5.0)
       semver: 7.6.3
       tar-fs: 3.0.6
       unbzip2-stream: 1.4.3
@@ -847,7 +847,7 @@ snapshots:
       '@types/node': 22.0.0
     optional: true
 
-  agent-base@7.1.1:
+  agent-base@7.1.1(supports-color@5.5.0):
     dependencies:
       debug: 4.3.6(supports-color@5.5.0)
     transitivePeerDependencies:
@@ -909,7 +909,7 @@ snapshots:
 
   binary-extensions@2.3.0: {}
 
-  brace-expansion@1.1.11:
+  brace-expansion@1.1.21:
     dependencies:
       balanced-match: 1.0.2
       concat-map: 0.0.1
@@ -1035,7 +1035,7 @@ snapshots:
 
   esutils@2.0.3: {}
 
-  extract-zip@2.0.1:
+  extract-zip@2.0.1(supports-color@5.5.0):
     dependencies:
       debug: 4.3.6(supports-color@5.5.0)
       get-stream: 5.2.0
@@ -1078,7 +1078,7 @@ snapshots:
     dependencies:
       pump: 3.0.0
 
-  get-uri@6.0.3:
+  get-uri@6.0.3(supports-color@5.5.0):
     dependencies:
       basic-ftp: 5.0.5
       data-uri-to-buffer: 6.0.2
@@ -1095,16 +1095,16 @@ snapshots:
 
   has-flag@3.0.0: {}
 
-  http-proxy-agent@7.0.2:
+  http-proxy-agent@7.0.2(supports-color@5.5.0):
     dependencies:
-      agent-base: 7.1.1
+      agent-base: 7.1.1(supports-color@5.5.0)
       debug: 4.3.6(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
 
-  https-proxy-agent@7.0.5:
+  https-proxy-agent@7.0.5(supports-color@5.5.0):
     dependencies:
-      agent-base: 7.1.1
+      agent-base: 7.1.1(supports-color@5.5.0)
       debug: 4.3.6(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
@@ -1189,7 +1189,7 @@ snapshots:
 
   minimatch@3.1.2:
     dependencies:
-      brace-expansion: 1.1.11
+      brace-expansion: 1.1.21
 
   mitt@3.0.1: {}
 
@@ -1225,16 +1225,16 @@ snapshots:
     dependencies:
       wrappy: 1.0.2
 
-  pac-proxy-agent@7.0.2:
+  pac-proxy-agent@7.0.2(supports-color@5.5.0):
     dependencies:
       '@tootallnate/quickjs-emscripten': 0.23.0
-      agent-base: 7.1.1
+      agent-base: 7.1.1(supports-color@5.5.0)
       debug: 4.3.6(supports-color@5.5.0)
-      get-uri: 6.0.3
-      http-proxy-agent: 7.0.2
-      https-proxy-agent: 7.0.5
+      get-uri: 6.0.3(supports-color@5.5.0)
+      http-proxy-agent: 7.0.2(supports-color@5.5.0)
+      https-proxy-agent: 7.0.5(supports-color@5.5.0)
       pac-resolver: 7.0.1
-      socks-proxy-agent: 8.0.4
+      socks-proxy-agent: 8.0.4(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -1262,16 +1262,16 @@ snapshots:
 
   progress@2.0.3: {}
 
-  proxy-agent@6.4.0:
+  proxy-agent@6.4.0(supports-color@5.5.0):
     dependencies:
-      agent-base: 7.1.1
+      agent-base: 7.1.1(supports-color@5.5.0)
       debug: 4.3.6(supports-color@5.5.0)
-      http-proxy-agent: 7.0.2
-      https-proxy-agent: 7.0.5
+      http-proxy-agent: 7.0.2(supports-color@5.5.0)
+      https-proxy-agent: 7.0.5(supports-color@5.5.0)
       lru-cache: 7.18.3
-      pac-proxy-agent: 7.0.2
+      pac-proxy-agent: 7.0.2(supports-color@5.5.0)
       proxy-from-env: 1.1.0
-      socks-proxy-agent: 8.0.4
+      socks-proxy-agent: 8.0.4(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -1284,9 +1284,9 @@ snapshots:
       end-of-stream: 1.4.4
       once: 1.4.0
 
-  puppeteer-core@22.14.0:
+  puppeteer-core@22.14.0(supports-color@5.5.0):
     dependencies:
-      '@puppeteer/browsers': 2.3.0
+      '@puppeteer/browsers': 2.3.0(supports-color@5.5.0)
       chromium-bidi: 0.6.2(devtools-protocol@0.0.1312386)
       debug: 4.3.6(supports-color@5.5.0)
       devtools-protocol: 0.0.1312386
@@ -1296,48 +1296,48 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  puppeteer-extra-plugin-adblocker@2.13.6(puppeteer-core@22.14.0)(puppeteer-extra@3.3.6(puppeteer-core@22.14.0)(puppeteer@22.14.0))(puppeteer@22.14.0):
+  puppeteer-extra-plugin-adblocker@2.13.6(puppeteer-core@22.14.0(supports-color@5.5.0))(puppeteer-extra@3.3.6(puppeteer-core@22.14.0(supports-color@5.5.0))(puppeteer@22.14.0(supports-color@5.5.0))(supports-color@5.5.0))(puppeteer@22.14.0(supports-color@5.5.0))(supports-color@5.5.0):
     dependencies:
-      '@cliqz/adblocker-puppeteer': 1.23.8(puppeteer@22.14.0)
+      '@cliqz/adblocker-puppeteer': 1.23.8(puppeteer@22.14.0(supports-color@5.5.0))
       debug: 4.3.6(supports-color@5.5.0)
       node-fetch: 2.7.0
-      puppeteer-extra-plugin: 3.2.3(puppeteer-extra@3.3.6(puppeteer-core@22.14.0)(puppeteer@22.14.0))
+      puppeteer-extra-plugin: 3.2.3(puppeteer-extra@3.3.6(puppeteer-core@22.14.0(supports-color@5.5.0))(puppeteer@22.14.0(supports-color@5.5.0))(supports-color@5.5.0))(supports-color@5.5.0)
     optionalDependencies:
-      puppeteer: 22.14.0
-      puppeteer-core: 22.14.0
-      puppeteer-extra: 3.3.6(puppeteer-core@22.14.0)(puppeteer@22.14.0)
+      puppeteer: 22.14.0(supports-color@5.5.0)
+      puppeteer-core: 22.14.0(supports-color@5.5.0)
+      puppeteer-extra: 3.3.6(puppeteer-core@22.14.0(supports-color@5.5.0))(puppeteer@22.14.0(supports-color@5.5.0))(supports-color@5.5.0)
     transitivePeerDependencies:
       - encoding
       - playwright-extra
       - supports-color
 
-  puppeteer-extra-plugin@3.2.3(puppeteer-extra@3.3.6(puppeteer-core@22.14.0)(puppeteer@22.14.0)):
+  puppeteer-extra-plugin@3.2.3(puppeteer-extra@3.3.6(puppeteer-core@22.14.0(supports-color@5.5.0))(puppeteer@22.14.0(supports-color@5.5.0))(supports-color@5.5.0))(supports-color@5.5.0):
     dependencies:
       '@types/debug': 4.1.12
       debug: 4.3.6(supports-color@5.5.0)
       merge-deep: 3.0.3
     optionalDependencies:
-      puppeteer-extra: 3.3.6(puppeteer-core@22.14.0)(puppeteer@22.14.0)
+      puppeteer-extra: 3.3.6(puppeteer-core@22.14.0(supports-color@5.5.0))(puppeteer@22.14.0(supports-color@5.5.0))(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
 
-  puppeteer-extra@3.3.6(puppeteer-core@22.14.0)(puppeteer@22.14.0):
+  puppeteer-extra@3.3.6(puppeteer-core@22.14.0(supports-color@5.5.0))(puppeteer@22.14.0(supports-color@5.5.0))(supports-color@5.5.0):
     dependencies:
       '@types/debug': 4.1.12
       debug: 4.3.6(supports-color@5.5.0)
       deepmerge: 4.3.1
     optionalDependencies:
-      puppeteer: 22.14.0
-      puppeteer-core: 22.14.0
+      puppeteer: 22.14.0(supports-color@5.5.0)
+      puppeteer-core: 22.14.0(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
 
-  puppeteer@22.14.0:
+  puppeteer@22.14.0(supports-color@5.5.0):
     dependencies:
-      '@puppeteer/browsers': 2.3.0
+      '@puppeteer/browsers': 2.3.0(supports-color@5.5.0)
       cosmiconfig: 9.0.0
       devtools-protocol: 0.0.1312386
-      puppeteer-core: 22.14.0
+      puppeteer-core: 22.14.0(supports-color@5.5.0)
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -1369,9 +1369,9 @@ snapshots:
 
   smart-buffer@4.2.0: {}
 
-  socks-proxy-agent@8.0.4:
+  socks-proxy-agent@8.0.4(supports-color@5.5.0):
     dependencies:
-      agent-base: 7.1.1
+      agent-base: 7.1.1(supports-color@5.5.0)
       debug: 4.3.6(supports-color@5.5.0)
       socks: 2.8.3
     transitivePeerDependencies:
